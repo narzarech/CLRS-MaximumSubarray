@@ -9,12 +9,13 @@ int main() {
 		arr.push_back(temp);
 	}
 	int leftmax = arr[0];
+	int rightmax = arr[0];
 	for (int i = 1; i < n; ++i) {
-		int rightmax = numeric_limits<int>::min(), sum = 0;
-		for (int j = i; j >= 0; --j) {
-			sum += arr[j];
-			if (rightmax < sum) rightmax = sum;
+		if (rightmax > 0) {
+			rightmax += arr[i];
 		}
+		else rightmax = arr[i];
+		cout << rightmax << endl;
 		if (leftmax < rightmax) {
 			leftmax = rightmax;
 		}
